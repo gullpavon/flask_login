@@ -1,2 +1,2 @@
-# flask_login
-a very simple flask_login example. 
+# A very reductive example using flask_login
+because documentation can be confusing :)
