@@ -102,4 +102,10 @@ def page_not_found(e):
 @login_manager.user_loader
 def load_user(userid):
     return User(userid)
+
+
+
+if __name__ == '__main__':
+    app.run(debug=True, use_reloader=True)
+
     
