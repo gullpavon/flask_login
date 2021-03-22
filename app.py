@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, render_template, request, url_for, redirect, session, abort, Response
-from flask_login import LoginManager, UserMixin, login_required, login_user, logout_user 
+from flask_login import LoginManager, UserMixin, login_required, login_user, logout_user, current_user
 
 
 from flask_wtf import Form
@@ -60,6 +60,19 @@ users_activated = {User(key) for (key,value) in users_db.items()}
 @login_required
 def protectedurl_func():
     return Response("Hello World!")
+
+
+# if you want to protect a url and have it so that only a paritcular user can see it you woul do something as such
+
+@app.route('/specificUserProtectedPage')
+@login_required
+def gullpavon_page():
+    if current_user.id == 'gullpavon':
+        return Response("Hello Gull Pavon!")
+    else:
+        return abort(401)
+
+ 
 
  
 
